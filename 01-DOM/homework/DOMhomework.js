@@ -30,8 +30,8 @@ function ToDo (description) {
 // Debe setear el atributo 'complete' del ToDo en true
 
 // Tu código acá:
-ToDo.prototype.completeToDo = function(){
- this.complete = true;
+ToDo.prototype.completeToDo = function () {
+  this.complete = !this.complete
 }
 
 // Agregar dos parámetros a la función 'buildToDo':
@@ -52,12 +52,27 @@ ToDo.prototype.completeToDo = function(){
 //    8) Devolver la variable toDoShell
 
 
-function buildToDo(todo, index, ToDo, Index) {
+function buildToDo(todo, index) {
   // Tu código acá:
-const toDoShell = document.createElement("div");
-toDoShell.classList.add("toDoShell")
-const toDoText = document.createElement("span")
+  let toDoShell = document.createElement("div") // <div> </div>
+  toDoShell.setAttribute("class", "toDoShell")  // <div class="toDoShell"> </div>
 
+  let toDoText = document.createElement("span")
+  toDoText.innerHTML = todo.description // <span>Limpiar la casa</span> 
+
+  toDoText.setAttribute("id", index)// <span id="1">Limpiar la casa</span>
+
+  if (todo.complete === true) {
+    toDoText.setAttribute("class", "completeText")
+    //<span id="1" class="completeText">Limpiar la casa</span>
+  }
+
+  toDoText.addEventListener("click", completeToDo)
+
+  toDoShell.appendChild(toDoText)
+  // <div class="toDoShell"> <span id="1">Limpiar la casa</span> </div>
+
+  return toDoShell
 }
 
 // La función 'buildToDos' debe crear un array de objetos toDo y devolverlo
@@ -67,7 +82,10 @@ const toDoText = document.createElement("span")
 
 function buildToDos(toDos) {
   // Tu código acá:
+  let newArr = toDos.map((todo, index) => buildToDo(todo, index))
+  // [{description: "limpar", complete: false},{},{}]
 
+  return newArr
 }
 
 
@@ -82,7 +100,14 @@ function buildToDos(toDos) {
 
 function displayToDos() {
   // Tu código acá:
+  let toDoContainer = document.getElementById("toDoContainer")
+  toDoContainer.innerHTML = ""
 
+  let toDoBuilt = buildToDos(toDoItems)
+
+  toDoBuilt.forEach(todo => toDoContainer.appendChild(todo))
+
+  console.log(toDoBuilt)
 }
 
 
@@ -97,7 +122,16 @@ function displayToDos() {
 
 function addToDo() {
   // Tu código acá:
-
+  let input = document.querySelector("#toDoInput")
+  
+    let newToDo = new ToDo(input.value)
+  
+    toDoItems.push(newToDo)
+  
+    input.value = ""
+  
+    displayToDos()
+  
 }
 
 // Agregar un 'Event Listener' para que cada vez que el botón 'AGREGAR' sea clickeado
@@ -106,7 +140,9 @@ function addToDo() {
 //   2) Agregarle un 'click' event listener, pasándole la función 'addToDo' como callback
 
 // Tu código acá:
+let btn = document.getElementById("addButton")
 
+btn.addEventListener("click", addToDo)
 
 // La función completeToDo se va a ejecutar cuando queramos completar un todo
 // [NOTA: Algunas cuestiones a tener en cuenta
@@ -122,8 +158,12 @@ function addToDo() {
 
 function completeToDo(event) {
   // DESCOMENTAR LA SIGUIENTE LINEA
-  // const index = event.target.id;
+  const index = event.target.id;
+  // <div class="toDoShell"> <span id="1">Limpiar la casa</span> </div>
   // Tu código acá:
+  toDoItems[index].completeToDo()
+  displayToDos()
+  //[{description: "Llamar a la abuela", complete:true}, {}, {}]
 
 }
 
