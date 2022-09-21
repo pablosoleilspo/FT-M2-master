@@ -21,6 +21,7 @@ $("#search").click(() => {
      $.get(`http://localhost:5000/amigos/${input.value}`, (data) => {
     let span = document.querySelector("#amigo")
      span.textContent = data.name
+     input.value = ""
     })
 })
 
@@ -33,6 +34,7 @@ $.ajax({
     type: 'DELETE',
     success: function (result) {
     $("#success").text("mueltit@")
+    inputDelete.value = ""
     }
 });
 
