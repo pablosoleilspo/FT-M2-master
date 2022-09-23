@@ -1,0 +1,36 @@
+.input{
+    display: block;
+    margin-top: 30px;
+    background-color: burlywood;
+    border-style: groove;
+    border-radius: 50px;
+    width: 500px;
+    height: 85px;
+    margin-left:490px;
+}
+.copiar{
+          background-color:rgb(118, 213, 199);
+          margin-top: 30px;
+      font-size: 18px;
+      border-radius: 12px;
+      text-align: center;
+      
+        }
+        .copiar:hover{
+          color: #000000;
+          background-color: #ffffff;
+          border: 5px solid #FFA465;
+          border-radius: 12px;
+        }
+
+        .boton{
+            background-color: rgb(118, 213, 199);
+            margin-left: 50px;
+            font-size: 18px;
+            border-radius: 12px;
+            border: 2px solid #4CAF50;
+        }
+        .boton:hover{
+            background-color: #4CAF50; /* Green */
+            color: white;
+        }

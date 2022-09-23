@@ -1,0 +1,10 @@
+.cuadros{
+display: inline-block;
+background-color: burlywood;
+margin-top: 50px;
+margin-left:80px;
+width: 220px;
+height:290px;
+border-style: groove;
+border-radius: 50px;
+}
