@@ -4,7 +4,7 @@ import style from './Card.module.css';
 export default function Card(props) {
   // acá va tu código
   return <div className={style.cuadros}>
-    <button onClick={props.onClose}>X</button>
+    <button onClick={props.onClose} className={`${style.btn} ${style.btncolor}`}>X</button>
      <h1>{props.name}</h1>
      <p>{props.min}</p>
      <p>{props.max}</p>

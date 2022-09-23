@@ -8,3 +8,18 @@ height:290px;
 border-style: groove;
 border-radius: 50px;
 }
+.btn{
+background-color: red;
+width:25px ;
+border-radius:25px ;
+margin: 5px;
+align-self: flex-end;
+}
+.btn:hover{
+    color: red;
+    background-color: white;
+
+}
+.btncolor{
+color: white;
+}
