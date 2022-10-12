@@ -25,6 +25,16 @@
       border-radius: 20px;
       height: 100%;
     }
+
+    @media @phone {
+      .ondas,
+      .tecnologia {
+        display: none;
+      }
+      .auricular {
+        width: 100%;
+      }
+    }
   }
 
   .musica-nueva {
@@ -45,9 +55,18 @@
     padding: 50px 60px;
     display: flex;
     justify-content: center;
+ @media @phone {
+      flex-direction: column-reverse;
+      padding: 15px;
+      width: 100%;
+    }
 
     .actual-text {
       width: 50%;
+ //media queries
+      @media @phone {
+        width: auto;
+      }
 
       h3 {
         margin-bottom: 10px;
@@ -58,6 +77,15 @@
       }
 
       .btn {
+        //mixins
+        .btnRegistro(@btn-bg-color, @wild-sand);
+      
+        //media queries
+          @media @phone {
+          width:100%;
+          display: block;
+          text-align: center;
+        }
       }
     }
 
@@ -70,6 +98,13 @@
         height: auto;
         border-radius: 10px;
       }
+      @media @phone {
+        width: 100%;
+      margin-left: 1px;
+      margin-right: 1px;
+      padding: 5px;
+
+    }
     }
   }
 }

@@ -1,1 +1,21 @@
 // Mixins acá
+.flex(@direction: row, @justify: center, @align: center) {
+    display: flex;
+    flex-direction: @direction;
+    justify-content: @justify;
+    align-items: @align;
+}
+
+.btnRegistro(@btn-bg-color, @font-color) {
+    background-color: @btn-bg-color;
+    border-radius: 5px;
+    color: @font-color;
+    padding: 8px;
+    font-size: 16px;
+    display: inline-block;
+
+    &:hover {
+        background-color:  @waterloo;
+        color:@btn-bg-color;
+    }
+}

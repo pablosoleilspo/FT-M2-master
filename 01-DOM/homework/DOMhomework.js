@@ -82,7 +82,8 @@ function buildToDo(todo, index) {
 
 function buildToDos(toDos) {
   // Tu código acá:
-  let newArr = toDos.map((todo, index) => buildToDo(todo, index))
+  let newArr = toDos.map((todo, index) => buildToDo(todo, index))   
+  // return toDos.map(buildToDo)
   // [{description: "limpar", complete: false},{},{}]
 
   return newArr
