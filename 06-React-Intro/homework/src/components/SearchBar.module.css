@@ -1,7 +1,7 @@
 .input{
     display: block;
     margin-top: 30px;
-    background-color: burlywood;
+    background-color: #AEBDCA;
     border-style: groove;
     border-radius: 50px;
     width: 500px;
@@ -9,7 +9,7 @@
     margin-left:490px;
 }
 .copiar{
-          background-color:rgb(118, 213, 199);
+          background-color:#E8DFCA;
           margin-top: 30px;
       font-size: 18px;
       border-radius: 12px;
@@ -19,18 +19,18 @@
         .copiar:hover{
           color: #000000;
           background-color: #ffffff;
-          border: 5px solid #FFA465;
+          border: 5px solid #7895B2;
           border-radius: 12px;
         }
 
         .boton{
-            background-color: rgb(118, 213, 199);
+            background-color: #E8DFCA;
             margin-left: 50px;
             font-size: 18px;
             border-radius: 12px;
-            border: 2px solid #4CAF50;
+            border: 2px solid #7895B2;
         }
         .boton:hover{
-            background-color: #4CAF50; /* Green */
+            background-color: #7895B2; /* Green */
             color: white;
         }

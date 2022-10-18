@@ -24,3 +24,30 @@ export default function Cards({ cities }) { // cities= []
     </div>
   )
 };
+
+// otra forma de hacerlo 
+
+// export default function Cards(props) {
+//   console.log(props)
+//   // acá va tu código
+//   // tip, podés usar un map
+//   return (
+//     <div>
+//        {/* Si en props recibimos un array tenemos que mapearlo, estamos hablando de codigo JS, necesitamos las llaves */}
+//       {
+//         props.cities.map( (city) => 
+//           <Card
+//           name = {city.name}
+//           max= {city.main.temp_max}
+//           min= {city.main.temp_min}
+//           onClose= {() => alert(city.name)}
+//           img= {city.weather[0].icon}
+//           // Necesitamos una key
+//           key = {city.id}
+//           />
+//           )
+//         //  UTILIZAMOS UNA ESTRUCTURA Y LA REUTILIZAMOS 
+//       }
+//     </div>
+//   )
+// };

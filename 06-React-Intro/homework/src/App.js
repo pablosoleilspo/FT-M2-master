@@ -8,7 +8,12 @@ import data, { Cairns } from './data.js';
 function App() {
   return (
     <div className="App">
-
+   <div>
+        <SearchBar
+          onSearch={(ciudad) => alert(ciudad)}
+        />
+      </div>
+      
       <hr />
       <div>
         <Cards
@@ -16,11 +21,7 @@ function App() {
         />
       </div>
       <hr />
-      <div>
-        <SearchBar
-          onSearch={(ciudad) => alert(ciudad)}
-        />
-      </div>
+   
     </div>
   );
 }
