@@ -33,6 +33,7 @@ export default function App() {
         }
       });
       }
+      //Filtra los elementos(city) devuelve un nuevo array con los elementos filtrado, dejando por fuera el que no coincida con el id, que recibe por parametro
       function onClose(id) {
         setCities(oldCities => oldCities.filter(c => c.id !== id));
       }
@@ -41,6 +42,7 @@ export default function App() {
   return (
     <div className="App">
    <Nav onSearch={onSearch} />
+    {/* El componente Cards, está recibiendo estas propiedades. */}
    <Cards cities={cities} onClose={onClose} />
     </div>
   );
