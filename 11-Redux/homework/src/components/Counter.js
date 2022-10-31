@@ -6,10 +6,15 @@ class Counter extends Component {
     // Extra Credit
     incrementIfOdd = () => {
       //Implementar una función de incremento que sólo aumenta si el valor del contador es impar
+        if(this.props.count % 2 === 1) this.props.increment()
     };
     // Extra Credit
     incrementAsync = () => {
+        //Debemos utilizar middleware(thunk) para funciones asincronas
         //  Implementar una función de incremento que aumenta después de esperar un segundo
+        setTimeout(()=>{
+            this.props.increment()
+        }, 1000)
     };
 
     render() {
@@ -18,19 +23,19 @@ class Counter extends Component {
         return (
             <p>
                 Clickeado: {this.props.count} veces
-                <button onClick={() => {/* Completar */ }}>
+                <button onClick={() => {this.props.increment()}}>
                     + {/* Incremeta */}
                 </button>
-                <button onClick={() => {/* Completar */ }}>
+                <button onClick={() => {this.props.decrement()}}>
                     -  {/* Decrementa */}
                 </button>
                  {/* Si quieres hacer los extra credit puede descomentar las lineas de abajo */}
-                {/* <button onClick={this.incrementIfOdd}>
+                <button onClick={this.incrementIfOdd}>
                     incrementa si es impar
                 </button>
                 <button onClick={this.incrementAsync}>
                     Incrementa despues de un segundos
-                </button>  */}
+                </button> 
             </p>
         );
     }
@@ -52,3 +57,5 @@ const mapStateToProps = (state) => {
 //Pasamos todas las funciones que dependen de Redux, junto con el propio componente,
 // para que Redux se dé a conocer a este componente.
 export default connect(mapStateToProps, { increment, decrement })(Counter);
+//                      1er parametro: state
+//                      2do paramentro: dispatch
