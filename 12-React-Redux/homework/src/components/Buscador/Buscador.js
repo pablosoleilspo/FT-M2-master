@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from 'react-router-dom';
 import './Buscador.css';
+import { addMovieFavorite, getMovies } from '../../actions'
 
 
 
@@ -17,6 +18,7 @@ export class Buscador extends Component {
   }
   handleSubmit(event) {
     event.preventDefault();
+    this.props.getMovies(this.state.title)
   }
 
   render() {
@@ -39,10 +41,38 @@ export class Buscador extends Component {
         </form>
         <ul>
          {/* Aqui tienes que escribir tu codigo para mostrar la lista de peliculas */}
+          {
+            this.props.movies.map(m=>(
+              <div key={m.imdbID}>
+                <Link to= {`/movie/${m.imdbID}`}>
+                    <span> {m.Title} </span>
+                    <img src={m.Poster} alt= "img not found"/>
+                </Link>
+                <button onClick={()=> this.props.addMovieFavorite({title: m.Title, imdbID: m.imdbID}) }>Fav</button>
+              </div>
+            ))
+          }
         </ul>
       </div>
     );
   }
 }
 
-export default Buscador;
+const mapStateToProps = (state)=> {
+  return {
+    movies: state.moviesLoaded
+  }
+}
+
+// const mapDispatchToProps = (dispatch) =>{
+//   return {
+//     addMovieFavorite: (payload)=>dispatch(addMovieFavorite(payload)),
+//     getMovies: (titulo)=> dispatch(getMovies(titulo)),
+//   }
+// }
+
+//                                            destructuring de nuestras acciones
+export default connect(mapStateToProps, {addMovieFavorite, getMovies})(Buscador);
+
+//Si utilizamos esta opcion, debemos generar la funcion de la linea 67
+//export default connect(mapStateToProps, mapDispatchToProps)(Buscador);
